@@ -16,30 +16,24 @@ var HelloWorld = NativeModules.HelloWorld;
  
 type Props = {};
 export default class App extends Component<Props> {
-  state = {esimValue : null}
- 
+
   // async function to call the Java native method
-  async sayHiFromJava() {
-    HelloWorld.sayHi( (err) => {console.log(err)}, (msg) => {console.log(msg)} );
-  }
-  async esimDataFromJava() {
-    HelloWorld.EuiccManager( (value) => {
-      console.log(value);
-      this.setState({esimValue:value})
-    } );
+   sayHiFromJava() {
+   DeviceEventEmitter.addListener('check',
+    (e)=>{
+      console.log("hello");
+  
+  })
   }
   
-  componentWillMount =() => {
-    DeviceEventEmitter.addListener('customEventName', function(e) {
-      // handle event and you will get a value in event object, you can log it here
-      console.log(e);
-    });
+  componentDidMount =() => {
+ 
   }
   render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={ this.sayHiFromJava }>
-              <Text>Check for esim  {this.state.esimValue}</Text>
+              <Text>Check for esim </Text>
          </TouchableOpacity>
       </View>
     );

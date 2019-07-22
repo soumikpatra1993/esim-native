@@ -29,17 +29,5 @@ public class HelloWorldModule extends ReactContextBaseJavaModule {
             errorCallback.invoke(e.getMessage());
         }
     }
-    //   public EuiccManager(Context context , Callback errorCallback, Callback successCallback) {
-    //     mContext = context;
-    //     TelephonyManager tm = (TelephonyManager)
-    //             context.getSystemService(Context.TELEPHONY_SERVICE);
-    //     mCardId = tm.getCardIdForDefaultEuicc();
-    //        EuiccManager mgr = (EuiccManager) context.getSystemService(Context.EUICC_SERVICE);
-    // boolean isEnabled = mgr.isEnabled();
-    //  if(isEnabled){
-    //         successCallback.invoke(isEnabled);
-    //  }
-    //   errorCallback.invoke(isEnabled)
-    // }
- 
+        
 }
